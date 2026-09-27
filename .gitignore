@@ -1,0 +1,22 @@
+# Generated hardware build output (regenerate via hw/scripts/build_bd.tcl)
+hw/build/
+
+# Generated software BSP + device-tree (regenerate via sdtgen + empyro create_bsp,
+# see docs/BOARD_CONFIG.md)
+sw/workspace/
+sw/dts/
+
+# Per-app build output (regenerate via empyro build_app)
+sw/apps/*/build/
+
+# Vivado/Vitis transient files
+*.jou
+*.log
+*.str
+.Xil/
+.repo.yaml
+
+# Editor/tooling metadata
+sw/apps/*/src/.cache/
+sw/apps/*/src/.clangd
+sw/apps/*/src/compile_commands.json
