@@ -1,5 +1,7 @@
-# Generated hardware build output (regenerate via hw/scripts/build_bd.tcl)
+# Generated hardware build output (regenerate via hw/scripts/build_bd.tcl
+# and hw/scripts/build_bd_i2c_probe.tcl respectively)
 hw/build/
+hw/build_i2c_probe/
 
 # Generated software BSP + device-tree (regenerate via sdtgen + empyro create_bsp,
 # see docs/BOARD_CONFIG.md)
@@ -15,6 +17,25 @@ sw/apps/*/build/
 *.str
 .Xil/
 .repo.yaml
+
+# Python venv holding the LiteX/LiteScope toolchain and the host-tool deps
+# (recreate: python3 -m venv .venv-litex && .venv-litex/bin/pip install
+#  litex litescope migen pyserial pillow numpy matplotlib -- note litex and
+#  migen must come from git, the PyPI releases are mutually incompatible on
+#  Python 3.12, see docs/BOARD_CONFIG.md)
+.venv-litex/
+
+# LiteScope generated core (regenerate: hw/litescope/gen_litescope.py)
+hw/litescope/build/
+
+# STM32 tester build output (regenerate: make -C sw/stm32_camtest)
+sw/stm32_camtest/*.elf
+sw/stm32_camtest/*.bin
+sw/stm32_camtest/*.map
+
+# Python bytecode
+__pycache__/
+*.pyc
 
 # Editor/tooling metadata
 sw/apps/*/src/.cache/
